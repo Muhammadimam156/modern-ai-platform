@@ -75,19 +75,19 @@ export default function Pricing() {
   };
 
   return (
-    <section id="pricing" className="py-20 sm:py-28 lg:py-32 px-6 lg:px-8 bg-slate-950">
-      <div className="max-w-7xl mx-auto">
+    <section id="pricing" className="w-full bg-slate-950 flex justify-center">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-24 lg:py-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16 sm:mb-20 lg:mb-24"
+          className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-white">Simple Pricing</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
+            Simple Pricing
           </h2>
-          <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-8">
             Choose the perfect plan for your team. Flexible and transparent.
           </p>
 
@@ -115,7 +115,7 @@ export default function Pricing() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {plans.map((plan, idx) => (
             <motion.div
               key={idx}
@@ -123,7 +123,7 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className={`relative rounded-2xl border transition-all duration-300 ${
+              className={`relative rounded-2xl border transition-all duration-300 h-full flex flex-col ${
                 plan.highlighted
                   ? 'border-blue-500/50 bg-blue-500/10 ring-1 ring-blue-500/20'
                   : 'border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10'
@@ -137,9 +137,9 @@ export default function Pricing() {
                 </div>
               )}
 
-              <div className="p-8 h-full flex flex-col">
+              <div className="p-6 sm:p-8 flex flex-col h-full">
                 <div className="mb-8">
-                  <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                     {plan.name}
                   </h3>
                   <p className="text-sm text-gray-400">
@@ -151,13 +151,13 @@ export default function Pricing() {
                   {plan.monthlyPrice ? (
                     <>
                       <div className="flex items-baseline gap-2 mb-2">
-                        <span className="text-4xl lg:text-5xl font-bold text-white">
+                        <span className="text-3xl sm:text-4xl font-bold text-white">
                           ${isAnnual ? (plan.yearlyPrice! / 12).toFixed(0) : plan.monthlyPrice}
                         </span>
-                        <span className="text-gray-400">/month</span>
+                        <span className="text-gray-300 text-sm">/month</span>
                       </div>
                       {isAnnual && (
-                        <p className="text-xs text-gray-400">
+                        <p className="text-xs text-gray-300">
                           ${plan.yearlyPrice}/year billed annually
                         </p>
                       )}
@@ -170,18 +170,18 @@ export default function Pricing() {
                 <button
                   className={`w-full py-3 rounded-lg font-semibold transition-all mb-8 ${
                     plan.highlighted
-                      ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                      : 'border border-gray-600 hover:border-gray-500 text-white hover:bg-white/5'
+                      ? 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50'
+                      : 'bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white'
                   }`}
                 >
                   {plan.cta}
                 </button>
 
                 <div className="space-y-4 flex-1">
-                  <p className="text-xs font-semibold text-gray-400 uppercase">Includes</p>
+                  <p className="text-xs font-semibold text-gray-300 uppercase">Includes</p>
                   {plan.features.map((feature, featureIdx) => (
                     <div key={featureIdx} className="flex items-start gap-3">
-                      <Check size={16} className="text-blue-400 flex-shrink-0 mt-0.5" />
+                      <Check size={16} className="text-blue-400 shrink-0 mt-0.5" />
                       <span className="text-sm text-gray-300">{feature}</span>
                     </div>
                   ))}

@@ -56,19 +56,19 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-20 sm:py-28 lg:py-32 px-6 lg:px-8 bg-slate-950">
-      <div className="max-w-7xl mx-auto">
+    <section id="testimonials" className="w-full bg-slate-950 flex justify-center">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-24 lg:py-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16 sm:mb-20 lg:mb-24"
+          className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-white">Loved by Teams</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
+            Loved by Teams
           </h2>
-          <p className="text-base sm:text-lg text-gray-400">
+          <p className="text-base sm:text-lg text-gray-300">
             See what customers say about Apex
           </p>
         </motion.div>
@@ -97,7 +97,7 @@ export default function Testimonials() {
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-linear-to-br from-blue-500 to-cyan-500 flex items-center justify-center shrink-0">
                   <span className="text-white font-semibold text-sm">
                     {testimonial.avatar}
                   </span>
@@ -106,7 +106,7 @@ export default function Testimonials() {
                   <p className="text-white font-semibold text-sm">
                     {testimonial.name}
                   </p>
-                  <p className="text-gray-400 text-xs">
+                  <p className="text-gray-300 text-xs">
                     {testimonial.role}
                   </p>
                 </div>

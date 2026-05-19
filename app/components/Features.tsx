@@ -38,19 +38,19 @@ export default function Features() {
   ];
 
   return (
-    <section id="features" className="py-20 sm:py-28 lg:py-32 px-6 lg:px-8 bg-slate-950">
-      <div className="max-w-7xl mx-auto">
+    <section id="features" className="w-full bg-slate-950 flex justify-center">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-20 lg:py-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16 sm:mb-20 lg:mb-24"
+          className="text-center mb-16 lg:mb-24"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-white">Premium Features</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
+            Premium Features
           </h2>
-          <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
             Everything you need to scale your business with intelligent automation
           </p>
         </motion.div>
@@ -65,17 +65,17 @@ export default function Features() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="group relative bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-300"
+                className="group h-full flex flex-col relative bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-300"
               >
-                <div className="mb-6 inline-flex p-3 bg-blue-500/20 rounded-xl border border-blue-500/30 group-hover:border-blue-500/50 transition-all">
-                  <Icon className="text-blue-400 group-hover:text-blue-300 transition-colors" size={24} />
+                <div className="mb-6 inline-flex p-3 bg-blue-500/20 rounded-xl border border-blue-500/30 group-hover:border-blue-500/50 transition-all w-fit">
+                  <Icon className="text-blue-400 group-hover:text-blue-300 transition-colors" size={24} strokeWidth={1.5} />
                 </div>
 
                 <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
                   {feature.title}
                 </h3>
 
-                <p className="text-sm sm:text-base text-gray-400 group-hover:text-gray-300 transition-colors leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-300 group-hover:text-gray-200 transition-colors leading-relaxed flex-1">
                   {feature.description}
                 </p>
 

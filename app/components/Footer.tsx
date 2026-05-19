@@ -21,8 +21,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-slate-950 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <footer className="w-full bg-slate-950 border-t border-white/5 flex justify-center">
+      <div className="w-full max-w-7xl px-6 lg:px-8">
         {/* Main Footer */}
         <div className="py-16 lg:py-20 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand */}
@@ -33,10 +33,10 @@ export default function Footer() {
             viewport={{ once: true }}
             className="col-span-2 sm:col-span-1"
           >
-            <div className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4">
+            <div className="text-xl lg:text-2xl font-bold bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4">
               Apex
             </div>
-            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed mb-6">
+            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-6">
               Intelligent automation platform for modern teams.
             </p>
             <div className="flex gap-3">
@@ -49,7 +49,7 @@ export default function Footer() {
                   title={label}
                   className="p-2 rounded-lg bg-white/5 hover:bg-blue-500/20 border border-white/10 hover:border-blue-500/30 transition-all duration-200"
                 >
-                  <Icon size={16} className="text-gray-400 hover:text-blue-400" />
+                  <Icon size={16} className="text-gray-300 hover:text-blue-400" />
                 </motion.a>
               ))}
             </div>
@@ -72,7 +72,7 @@ export default function Footer() {
                   <li key={idx}>
                     <a
                       href="#"
-                      className="text-xs sm:text-sm text-gray-400 hover:text-gray-300 transition-colors duration-200"
+                      className="text-xs sm:text-sm text-gray-300 hover:text-white transition-colors duration-200"
                     >
                       {link}
                     </a>
@@ -96,7 +96,7 @@ export default function Footer() {
               <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
                 Stay updated
               </h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-300">
                 Get the latest updates on new features and AI automation insights.
               </p>
             </div>

@@ -28,13 +28,13 @@ export default function Benefits() {
   ];
 
   return (
-    <section id="solutions" className="py-20 sm:py-28 lg:py-32 px-6 lg:px-8 bg-slate-950">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section id="solutions" className="w-full bg-slate-950 flex justify-center">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-20 lg:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left - Heading */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
@@ -57,16 +57,16 @@ export default function Benefits() {
                     viewport={{ once: true }}
                     className="flex gap-4"
                   >
-                    <div className="flex-shrink-0">
+                    <div className="shrink-0">
                       <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500/20 border border-blue-500/30">
-                        <Icon className="text-blue-400" size={24} />
+                        <Icon className="text-blue-400" size={24} strokeWidth={1.5} />
                       </div>
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-white mb-1">
                         {benefit.title}
                       </h3>
-                      <p className="text-gray-400 text-sm">
+                      <p className="text-gray-300 text-sm">
                         {benefit.description}
                       </p>
                     </div>
@@ -78,8 +78,8 @@ export default function Benefits() {
 
           {/* Right - Comparison Cards */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="space-y-6"

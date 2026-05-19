@@ -40,7 +40,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             className="flex items-center"
           >
-            <div className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <div className="text-xl lg:text-2xl font-bold bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Apex
             </div>
           </motion.div>

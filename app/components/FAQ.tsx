@@ -41,19 +41,19 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-20 sm:py-28 lg:py-32 px-6 lg:px-8 bg-slate-950">
-      <div className="max-w-4xl mx-auto">
+    <section id="faq" className="w-full bg-slate-950 flex justify-center">
+      <div className="w-full max-w-4xl px-6 lg:px-8 py-24 lg:py-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16 sm:mb-20 lg:mb-24"
+          className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-white">Frequently Asked Questions</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
+            Frequently Asked Questions
           </h2>
-          <p className="text-base sm:text-lg text-gray-400">
+          <p className="text-base sm:text-lg text-gray-300">
             Everything you need to know about Apex
           </p>
         </motion.div>
@@ -83,7 +83,7 @@ export default function FAQ() {
                 >
                   <ChevronDown
                     size={20}
-                    className="text-gray-400 flex-shrink-0"
+                    className="text-gray-300 shrink-0"
                   />
                 </motion.div>
               </button>
@@ -97,7 +97,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="px-6 sm:px-8 py-5 sm:py-6 bg-white/5 border-t border-white/10">
-                      <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
+                      <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                         {faq.answer}
                       </p>
                     </div>

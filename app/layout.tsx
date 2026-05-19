@@ -36,7 +36,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${poppins.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-slate-950 text-white">{children}</body>
+      <body className="min-h-full flex flex-col bg-slate-950 text-white overflow-x-hidden">{children}</body>
     </html>
   );
 }

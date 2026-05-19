@@ -4,37 +4,35 @@ import { motion } from 'framer-motion';
 
 export default function DashboardPreview() {
   return (
-    <section className="py-20 sm:py-28 lg:py-32 px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-cyan-500/5 pointer-events-none" />
+    <section className="w-full bg-slate-950 overflow-x-hidden flex justify-center">
+      <div className="relative w-full max-w-7xl px-6 lg:px-8 py-20 lg:py-32">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 via-transparent to-cyan-500/5 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16 sm:mb-20 lg:mb-24"
+          className="relative z-10 text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-white">Powerful Dashboard</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
+            Powerful Dashboard
           </h2>
-          <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
             Intuitive interface designed for modern teams
           </p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="relative"
+          className="relative z-10 w-full"
         >
-          {/* Glow Background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent rounded-3xl blur-3xl" />
-
           {/* Dashboard Card */}
-          <div className="relative bg-slate-900 border border-white/10 rounded-2xl p-6 sm:p-8 lg:p-10 backdrop-blur-xl overflow-hidden">
+          <div className="relative bg-slate-900 border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-xl overflow-hidden w-full">
             {/* Header */}
             <div className="flex items-center justify-between mb-8 pb-8 border-b border-white/10">
               <div className="flex gap-2">
@@ -45,7 +43,7 @@ export default function DashboardPreview() {
               <span className="text-xs text-gray-500">Dashboard v1.0</span>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
               {/* Sidebar */}
               <div className="lg:col-span-1">
                 <div className="space-y-3">
@@ -72,7 +70,7 @@ export default function DashboardPreview() {
                   ].map((stat, i) => (
                     <div key={i} className="bg-white/5 border border-white/10 rounded-lg p-4 hover:border-white/20 transition-colors">
                       <p className="text-xs text-gray-400 mb-2">{stat.label}</p>
-                      <p className="text-lg sm:text-xl lg:text-2xl font-bold text-white">{stat.value}</p>
+                      <p className="text-lg sm:text-xl font-bold text-white">{stat.value}</p>
                     </div>
                   ))}
                 </div>
@@ -82,7 +80,7 @@ export default function DashboardPreview() {
                   {[65, 45, 70, 50, 80, 55, 90, 60, 75].map((h, i) => (
                     <div
                       key={i}
-                      className="flex-1 bg-gradient-to-t from-blue-500 to-cyan-400 rounded-t opacity-80 hover:opacity-100 transition-opacity"
+                      className="flex-1 bg-linear-to-t from-blue-500 to-cyan-400 rounded-t opacity-80 hover:opacity-100 transition-opacity"
                       style={{ height: `${h}%` }}
                     />
                   ))}
@@ -101,27 +99,6 @@ export default function DashboardPreview() {
               </div>
             </div>
           </div>
-
-          {/* Floating Cards */}
-          <motion.div
-            animate={{ y: [0, -15, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
-            className="absolute -bottom-6 -left-6 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl p-6 shadow-2xl max-w-xs hidden sm:block"
-          >
-            <p className="text-white text-xs font-semibold mb-2">Performance</p>
-            <p className="text-white text-2xl font-bold">+127%</p>
-            <p className="text-blue-200 text-xs mt-1">Efficiency improved</p>
-          </motion.div>
-
-          <motion.div
-            animate={{ y: [0, 15, 0] }}
-            transition={{ duration: 4, delay: 1, repeat: Infinity }}
-            className="absolute -top-6 -right-6 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-xl p-6 shadow-2xl max-w-xs hidden sm:block"
-          >
-            <p className="text-white text-xs font-semibold mb-2">AI Status</p>
-            <p className="text-white text-lg font-bold">Active</p>
-            <p className="text-cyan-200 text-xs mt-1">Processing 1,248 tasks</p>
-          </motion.div>
         </motion.div>
       </div>
     </section>

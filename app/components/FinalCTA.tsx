@@ -5,24 +5,24 @@ import { ArrowRight } from 'lucide-react';
 
 export default function FinalCTA() {
   return (
-    <section id="contact" className="py-20 sm:py-28 lg:py-32 px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
+    <section id="contact" className="w-full bg-slate-950 relative overflow-x-hidden flex justify-center">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-cyan-500/5 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 via-transparent to-cyan-500/5 pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="relative w-full max-w-4xl px-6 lg:px-8 py-24 lg:py-32 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center space-y-8 sm:space-y-10"
+          className="text-center space-y-6 sm:space-y-8"
         >
           {/* Heading */}
           <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 lg:mb-8 text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white leading-tight">
               Start Scaling With AI Today
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-400 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               Join thousands of teams already using Apex. Get started with a 14-day free trial—no credit card required.
             </p>
           </div>
@@ -35,12 +35,12 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
           >
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 sm:px-10 py-4 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-2 group text-base sm:text-lg">
+            <button className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-8 sm:px-10 py-4 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 group text-base sm:text-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50">
               Start Your Free Trial
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
 
-            <button className="border border-gray-600 hover:border-gray-500 text-white px-8 sm:px-10 py-4 rounded-xl font-semibold transition-all duration-200 text-base sm:text-lg">
+            <button className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white px-8 sm:px-10 py-4 rounded-lg font-medium transition-all duration-200 text-base sm:text-lg flex items-center justify-center gap-2">
               Schedule Demo Call
             </button>
           </motion.div>
