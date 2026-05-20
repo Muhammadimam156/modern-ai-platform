@@ -92,3 +92,34 @@ input:focus, textarea:focus {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Premium card helpers */
+.soft-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 24px rgba(2,6,23,0.6);
+  border-radius: 12px;
+}
+
+.card-edge {
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Hero heading helper for tighter tracking and scale */
+.hero-heading {
+  letter-spacing: -0.02em;
+}
+
+/* Subtle floating for mockups */
+.float-soft {
+  transform: translateY(0);
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+}
+.float-soft:hover {
+  transform: translateY(-6px);
+}
+
+/* Responsive text helpers */
+.prose-wide {
+  max-width: 64ch;
+}

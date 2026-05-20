@@ -74,7 +74,7 @@ export default function FAQ() {
                 }
                 className="w-full px-6 sm:px-8 py-5 sm:py-6 bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-between text-left"
               >
-                <span className="font-semibold text-white text-sm sm:text-base break-words">
+                <span className="font-semibold text-white text-sm sm:text-base">
                   {faq.question}
                 </span>
                 <motion.div
@@ -97,7 +97,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="px-6 sm:px-8 py-5 sm:py-6 bg-white/5 border-t border-white/10 overflow-hidden">
-                      <p className="text-gray-300 leading-relaxed text-sm sm:text-base break-words">
+                      <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                         {faq.answer}
                       </p>
                     </div>

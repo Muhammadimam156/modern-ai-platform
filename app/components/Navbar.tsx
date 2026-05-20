@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import AnimatedSection from './ui/AnimatedSection';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,20 +34,21 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-20">
+        <div className="flex justify-between items-center h-14 lg:h-16">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center"
-          >
-            <div className="text-xl lg:text-2xl font-bold bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Apex
+          <AnimatedSection className="flex items-center" delay={0}>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-md bg-linear-to-r from-blue-500 to-cyan-400 flex items-center justify-center text-white font-bold shadow-sm">
+                A
+              </div>
+              <div className="text-lg lg:text-xl font-semibold bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Apex
+              </div>
             </div>
-          </motion.div>
+          </AnimatedSection>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <AnimatedSection className="hidden lg:flex items-center gap-8" delay={0.08}>
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -56,18 +58,18 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-          </div>
+          </AnimatedSection>
 
           {/* CTA Button */}
-          <div className="hidden lg:block">
+          <AnimatedSection className="hidden lg:block" delay={0.16}>
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl font-semibold transition-all duration-200 shadow-sm shadow-blue-600/20"
             >
               Get Started
             </motion.button>
-          </div>
+          </AnimatedSection>
 
           {/* Mobile Menu Button */}
           <button

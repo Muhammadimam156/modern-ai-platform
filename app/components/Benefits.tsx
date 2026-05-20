@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import AnimatedSection from './ui/AnimatedSection';
 import { Clock, TrendingUp, Zap, BarChart3 } from 'lucide-react';
 
 export default function Benefits() {
@@ -32,18 +33,9 @@ export default function Benefits() {
       <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left - Heading */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
-              Powerful Benefits for Your Team
-            </h2>
-            <p className="text-base sm:text-lg text-gray-400 mb-12 leading-relaxed">
-              Transform how your team works. Streamline operations, reduce manual work, and focus on what matters most.
-            </p>
+          <AnimatedSection delay={0}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">Powerful Benefits for Your Team</h2>
+            <p className="text-base sm:text-lg text-gray-400 mb-12 leading-relaxed">Transform how your team works. Streamline operations, reduce manual work, and focus on what matters most.</p>
 
             <div className="space-y-6 py-2">
               {benefits.map((benefit, idx) => {
@@ -74,7 +66,7 @@ export default function Benefits() {
                 );
               })}
             </div>
-          </motion.div>
+          </AnimatedSection>
 
           {/* Right - Comparison Cards */}
           <motion.div
@@ -84,31 +76,31 @@ export default function Benefits() {
             viewport={{ once: true }}
             className="space-y-8 gap-8"
           >
-            <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 sm:p-8 overflow-hidden   ">
+            <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 sm:p-8 overflow-hidden soft-card transform hover:-translate-y-2 transition-transform duration-300 shadow-sm">
               <p className="text-xs font-semibold text-red-300 mb-4">Without Apex</p>
               <div className="space-y-3 ">
-                <p className="text-white font-semibold text-sm sm:text-base break-words py-1">❌ Manual data entry 8 hours/day</p>
-                <p className="text-white font-semibold text-sm sm:text-base break-words py-1">❌ Error rates 15-20%</p>
-                <p className="text-white font-semibold text-sm sm:text-base break-words py-1">❌ Delayed reporting</p>
+                <p className="text-white font-semibold text-sm sm:text-base py-1">❌ Manual data entry 8 hours/day</p>
+                <p className="text-white font-semibold text-sm sm:text-base py-1">❌ Error rates 15-20%</p>
+                <p className="text-white font-semibold text-sm sm:text-base py-1">❌ Delayed reporting</p>
               </div>
             </div>
 
-            <div className="bg-green-500/10 border border-green-500/20 rounded-2xl  sm:p-8 overflow-hidden gap-4 mt-4">   
+            <div className="bg-green-500/10 border border-green-500/20 rounded-2xl p-6 sm:p-8 overflow-hidden soft-card transform hover:-translate-y-2 transition-transform duration-300 shadow-sm mt-4">   
               <p className="text-xs font-semibold text-green-300 mb-4">With Apex</p>
               <div className="space-y-3">
-                <p className="text-white font-semibold text-sm sm:text-base break-words py-1">✅ Fully automated workflows</p>
-                <p className="text-white font-semibold text-sm sm:text-base break-words  py-1">✅ 99.9% accuracy</p>
-                <p className="text-white font-semibold text-sm sm:text-base break-words py-1">✅ Real-time insights</p>
+                <p className="text-white font-semibold text-sm sm:text-base py-1">✅ Fully automated workflows</p>
+                <p className="text-white font-semibold text-sm sm:text-base py-1">✅ 99.9% accuracy</p>
+                <p className="text-white font-semibold text-sm sm:text-base py-1">✅ Real-time insights</p>
               </div>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4 pt-4">
-              <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+              <div className="bg-white/5 border border-white/10 rounded-lg p-6 soft-card transform hover:-translate-y-1 transition-transform duration-200">
                 <p className="text-3xl font-bold text-blue-400">10x</p>
                 <p className="text-xs text-gray-400 mt-2">Faster Execution</p>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+              <div className="bg-white/5 border border-white/10 rounded-lg p-6 soft-card transform hover:-translate-y-1 transition-transform duration-200">
                 <p className="text-3xl font-bold text-cyan-400">80%</p>
                 <p className="text-xs text-gray-400 mt-2">Cost Reduction</p>
               </div>

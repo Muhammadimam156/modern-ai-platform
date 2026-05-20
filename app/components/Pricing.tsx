@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import AnimatedSection from './ui/AnimatedSection';
 
 export default function Pricing() {
   const [isAnnual, setIsAnnual] = useState(false);
@@ -77,13 +78,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="w-full bg-slate-950 flex justify-center mb-0">
       <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16 lg:mb-20"
-        >
+        <AnimatedSection className="text-center mb-16 lg:mb-20" delay={0}>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
             Simple Pricing
           </h2>
@@ -98,40 +93,44 @@ export default function Pricing() {
             </span>
             <button
               onClick={() => setIsAnnual(!isAnnual)}
-              className="relative inline-flex h-8 w-14 items-center rounded-full bg-white/10 border border-white/20 hover:border-white/30 transition-colors"
+              aria-pressed={isAnnual}
+              className="inline-flex h-8 w-16 items-center rounded-full bg-white/6 border border-white/10 p-1 transition-colors"
             >
-              <motion.span
-                className="inline-block h-6 w-6 transform rounded-full bg-blue-600"
-                animate={{ x: isAnnual ? 28 : 4 }}
-                transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-              />
+              <div className={`flex w-full items-center ${isAnnual ? 'justify-end' : 'justify-start'} px-1`}> 
+                <span className="h-6 w-6 rounded-full bg-blue-600 shadow-sm" />
+              </div>
             </button>
             <span className={`text-sm font-medium ${isAnnual ? 'text-white' : 'text-gray-400'}`}>
               Annual
             </span>
             {isAnnual && (
-              <span className="text-sm font-semibold text-green-400">Save 17%</span>
+              <span className="text-sm font-semibold text-emerald-400">Save 17%</span>
             )}
           </div>
-        </motion.div>
+        </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <AnimatedSection className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" delay={0.12}>
           {plans.map((plan, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.6 }}
+              transition={{ delay: idx * 0.06, duration: 0.6 }}
               viewport={{ once: true }}
-              className={`relative rounded-2xl border transition-all duration-300 h-full flex flex-col overflow-hidden ${
+              className={`relative rounded-2xl transition-all duration-300 h-full flex flex-col overflow-hidden soft-card shadow-md ${
                 plan.highlighted
-                  ? 'border-blue-500/50 bg-blue-500/10 ring-1 ring-blue-500/20'
-                  : 'border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10'
+                  ? 'ring-2 ring-offset-2 ring-blue-500/30 bg-gradient-to-br from-slate-900/60 to-slate-900/40'
+                  : 'border border-white/10 bg-white/5 hover:scale-[1.01]'
               }`}
             >
-                
+
 
               <div className="p-6 sm:p-8 flex flex-col h-full">
+                {plan.highlighted && (
+                  <div className="absolute -top-3 left-4 inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-gradient-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white shadow-sm">
+                    Most popular
+                  </div>
+                )}
                 <div className="mb-8">
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                     {plan.name}
@@ -164,7 +163,7 @@ export default function Pricing() {
                 <button
                   className={`w-full py-3 rounded-lg font-semibold transition-all mb-8 ${
                     plan.highlighted
-                      ? 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50'
+                      ? 'bg-gradient-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white shadow-lg shadow-indigo-500/30'
                       : 'bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white'
                   }`}
                 >
@@ -176,14 +175,14 @@ export default function Pricing() {
                   {plan.features.map((feature, featureIdx) => (
                     <div key={featureIdx} className="flex items-start gap-3">
                       <Check size={16} className="text-blue-400 shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-300 break-words">{feature}</span>
+                      <span className="text-sm text-gray-300">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

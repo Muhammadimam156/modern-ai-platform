@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import AnimatedSection from './ui/AnimatedSection';
 
 export default function Hero() {
   return (
@@ -12,69 +13,44 @@ export default function Hero() {
       <div className="relative w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8 w-full"
-          >
+          <AnimatedSection className="space-y-8 w-full" delay={0}>
             {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 w-fit"
-            >
+            <AnimatedSection className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 w-fit" delay={0.06}>
               <div className="w-2 h-2 bg-blue-400 rounded-full" />
               <span className="text-xs sm:text-sm font-medium text-blue-300">AI-Powered Platform</span>
-            </motion.div>
+            </AnimatedSection>
 
             {/* Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white max-w-2xl"
-            >
+            <AnimatedSection className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white max-w-xl hero-heading" delay={0.12}>
               Scale Your Business with <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">AI Automation</span>
-            </motion.h1>
+            </AnimatedSection>
 
             {/* Subheading */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-l gap-6 "
-            >
+            <AnimatedSection className="text-base sm:text-lg text-gray-300 leading-relaxed prose-wide max-w-prose" delay={0.18}>
               Unlock the power of intelligent automation. Streamline workflows, boost productivity, gain real-time insights, and optimize operations with cutting-edge AI.
-            </motion.p>
+            </AnimatedSection>
 
             {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 pt-6"
-            >
-              <button className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-8 py-3.5 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 group text-sm sm:text-base w-full sm:w-auto shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50">
+            <AnimatedSection className="flex flex-col sm:flex-row gap-4 pt-8" delay={0.24}>
+                <button className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-10 py-3.5 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-3 group text-sm sm:text-base w-full sm:w-auto shadow-2xl shadow-blue-600/30">
                 Start Free Trial
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </button>
               <button className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white px-8 py-3.5 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2 text-sm sm:text-base w-full sm:w-auto">
                 View Demo
               </button>
-            </motion.div>
-          </motion.div>
+            </AnimatedSection>
+          </AnimatedSection>
 
           {/* Right Dashboard Mockup */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="hidden lg:flex justify-center w-full"
           >
-            <div className="w-full max-w-md relative">
-              <div className="relative bg-slate-900 border border-white/10 rounded-2xl p-6 backdrop-blur-xl shadow-2xl">
+            <div className="w-full max-w-md relative float-soft">
+              <div className="relative soft-card p-6 backdrop-blur-sm">
                 {/* Window controls */}
                 <div className="flex items-center gap-2 mb-6 pb-6 border-b border-white/5">
                   <div className="w-3 h-3 rounded-full bg-red-500" />
