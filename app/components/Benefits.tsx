@@ -28,8 +28,8 @@ export default function Benefits() {
   ];
 
   return (
-    <section id="solutions" className="w-full bg-slate-950 flex justify-center">
-      <div className="w-full max-w-7xl px-6 lg:px-8 py-20 lg:py-32">
+    <section id="solutions" className="w-full bg-slate-950 flex justify-center mb-0">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left - Heading */}
           <motion.div
@@ -45,7 +45,7 @@ export default function Benefits() {
               Transform how your team works. Streamline operations, reduce manual work, and focus on what matters most.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-6 py-2">
               {benefits.map((benefit, idx) => {
                 const Icon = benefit.icon;
                 return (
@@ -55,7 +55,7 @@ export default function Benefits() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.1, duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="flex gap-4"
+                    className="flex gap-4 py-2"
                   >
                     <div className="shrink-0">
                       <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500/20 border border-blue-500/30">
@@ -82,23 +82,23 @@ export default function Benefits() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-8 gap-8"
           >
-            <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 sm:p-8">
+            <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 sm:p-8 overflow-hidden   ">
               <p className="text-xs font-semibold text-red-300 mb-4">Without Apex</p>
-              <div className="space-y-3">
-                <p className="text-white font-semibold text-sm sm:text-base">❌ Manual data entry 8 hours/day</p>
-                <p className="text-white font-semibold text-sm sm:text-base">❌ Error rates 15-20%</p>
-                <p className="text-white font-semibold text-sm sm:text-base">❌ Delayed reporting</p>
+              <div className="space-y-3 ">
+                <p className="text-white font-semibold text-sm sm:text-base break-words py-1">❌ Manual data entry 8 hours/day</p>
+                <p className="text-white font-semibold text-sm sm:text-base break-words py-1">❌ Error rates 15-20%</p>
+                <p className="text-white font-semibold text-sm sm:text-base break-words py-1">❌ Delayed reporting</p>
               </div>
             </div>
 
-            <div className="bg-green-500/10 border border-green-500/20 rounded-2xl p-6 sm:p-8">
+            <div className="bg-green-500/10 border border-green-500/20 rounded-2xl  sm:p-8 overflow-hidden gap-4 mt-4">   
               <p className="text-xs font-semibold text-green-300 mb-4">With Apex</p>
               <div className="space-y-3">
-                <p className="text-white font-semibold text-sm sm:text-base">✅ Fully automated workflows</p>
-                <p className="text-white font-semibold text-sm sm:text-base">✅ 99.9% accuracy</p>
-                <p className="text-white font-semibold text-sm sm:text-base">✅ Real-time insights</p>
+                <p className="text-white font-semibold text-sm sm:text-base break-words py-1">✅ Fully automated workflows</p>
+                <p className="text-white font-semibold text-sm sm:text-base break-words  py-1">✅ 99.9% accuracy</p>
+                <p className="text-white font-semibold text-sm sm:text-base break-words py-1">✅ Real-time insights</p>
               </div>
             </div>
 

@@ -5,18 +5,18 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="w-full relative bg-slate-950 overflow-x-hidden flex justify-center pt-24 lg:pt-32">
+    <section className="w-full relative bg-slate-950 overflow-x-hidden flex justify-center pt-24 lg:pt-32 mb-0">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 via-transparent to-cyan-500/5 pointer-events-none" />
       
-      <div className="relative w-full max-w-7xl px-6 lg:px-8 py-16 lg:py-40">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <div className="relative w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6 w-full"
+            className="space-y-8 w-full"
           >
             {/* Badge */}
             <motion.div
@@ -44,7 +44,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl"
+              className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-l gap-6 "
             >
               Unlock the power of intelligent automation. Streamline workflows, boost productivity, gain real-time insights, and optimize operations with cutting-edge AI.
             </motion.p>
@@ -83,21 +83,21 @@ export default function Hero() {
                 </div>
 
                 {/* Dashboard content */}
-                <div className="space-y-6">
+                <div className="space-y-6 overflow-hidden gap-7">
                   {/* Stats */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-4 pb-2 border-b border-white/10">
                     <div className="bg-white/5 border border-white/10 rounded-lg p-4">
                       <p className="text-xs text-gray-400 mb-2">Revenue</p>
                       <p className="text-xl font-bold text-white">$24.5K</p>
                     </div>
                     <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
                       <p className="text-xs text-blue-300 mb-2">Growth</p>
-                      <p className="text-xl font-bold text-blue-300">+32%</p>
+                      <p className="text-xl font-bol text-blue-300">+32%</p>
                     </div>
                   </div>
 
                   {/* Chart */}
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-4 h-24 flex items-end justify-center gap-1">
+                  <div className="bg-white/5 border rounded-lg p-4 h-24 flex items-end justify-center gap-1 pb-2 border-b border-white/10">
                     {[40, 60, 45, 70, 55, 80, 65].map((h, i) => (
                       <div
                         key={i}
@@ -108,7 +108,7 @@ export default function Hero() {
                   </div>
 
                   {/* Activity */}
-                  <div className="space-y-2">
+                  <div className="space-y-2 pt-2  ">
                     <p className="text-xs font-semibold text-gray-300">Recent Activity</p>
                     <p className="text-sm text-gray-400">✓ Task automated 2m ago</p>
                     <p className="text-sm text-gray-400">✓ Report generated 5m ago</p>

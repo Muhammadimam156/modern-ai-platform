@@ -56,8 +56,8 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="w-full bg-slate-950 flex justify-center">
-      <div className="w-full max-w-7xl px-6 lg:px-8 py-24 lg:py-32">
+    <section id="testimonials" className="w-full bg-slate-950 flex justify-center mb-0">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white ">
             Loved by Teams
           </h2>
           <p className="text-base sm:text-lg text-gray-300">
@@ -73,7 +73,7 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 py-2">
           {testimonials.map((testimonial, idx) => (
             <motion.div
               key={idx}
@@ -81,7 +81,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-all duration-300"
+              className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-all duration-300 overflow-hidden flex flex-col h-full"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-4">
@@ -91,12 +91,12 @@ export default function Testimonials() {
               </div>
 
               {/* Content */}
-              <p className="text-gray-300 mb-6 leading-relaxed text-sm">
+              <p className="text-gray-300 mb-6 leading-relaxed text-sm break-words line-clamp-4">
                 "{testimonial.content}"
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 mt-auto">
                 <div className="w-12 h-12 rounded-full bg-linear-to-br from-blue-500 to-cyan-500 flex items-center justify-center shrink-0">
                   <span className="text-white font-semibold text-sm">
                     {testimonial.avatar}

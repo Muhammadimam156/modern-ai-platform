@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 export default function DashboardPreview() {
   return (
-    <section className="w-full bg-slate-950 overflow-x-hidden flex justify-center">
-      <div className="relative w-full max-w-7xl px-6 lg:px-8 py-20 lg:py-32">
+    <section className="w-full bg-slate-950 overflow-x-hidden flex justify-center mb-0">
+      <div className="relative w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 via-transparent to-cyan-500/5 pointer-events-none" />
 
@@ -19,7 +19,7 @@ export default function DashboardPreview() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
             Powerful Dashboard
           </h2>
-          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto pb-2">
             Intuitive interface designed for modern teams
           </p>
         </motion.div>
@@ -46,7 +46,8 @@ export default function DashboardPreview() {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
               {/* Sidebar */}
               <div className="lg:col-span-1">
-                <div className="space-y-3">
+                <div className="space-y-3 py-2">
+          
                   <div className="p-3 bg-blue-500/20 rounded-lg border border-blue-500/30 cursor-pointer">
                     <p className="text-xs font-semibold text-blue-300">Dashboard</p>
                   </div>
@@ -59,9 +60,9 @@ export default function DashboardPreview() {
               </div>
 
               {/* Main Content */}
-              <div className="lg:col-span-3 space-y-6">
+              <div className="lg:col-span-3 space-y-6 py-2">
                 {/* Stats Grid */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 py-2">
                   {[
                     { label: 'Total Users', value: '12,543' },
                     { label: 'Revenue', value: '$245K' },
@@ -76,7 +77,7 @@ export default function DashboardPreview() {
                 </div>
 
                 {/* Chart Area */}
-                <div className="bg-white/5 border border-white/10 rounded-lg p-6 h-40 flex items-end justify-between gap-2">
+                <div className="bg-white/5 border border-white/10 rounded-lg p-6 h-40 flex items-end justify-between gap-2 py-2">
                   {[65, 45, 70, 50, 80, 55, 90, 60, 75].map((h, i) => (
                     <div
                       key={i}
@@ -87,10 +88,10 @@ export default function DashboardPreview() {
                 </div>
 
                 {/* Activity List */}
-                <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-white">Recent Activity</h4>
+                <div className="space-y-3 ">
+                  <h4 className="text-sm font-semibold text-white py-2">Recent Activity</h4>
                   {[1, 2, 3].map((i) => (
-                    <div key={i} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg hover:border-white/20 transition-colors">
+                    <div key={i} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg hover:border-white/20 transition-colors mb-2">
                       <span className="text-xs sm:text-sm text-gray-400">✓ Task completed successfully</span>
                       <span className="text-xs text-gray-500">{i} min ago</span>
                     </div>

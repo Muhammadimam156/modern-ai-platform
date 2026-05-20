@@ -41,8 +41,8 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="w-full bg-slate-950 flex justify-center">
-      <div className="w-full max-w-4xl px-6 lg:px-8 py-24 lg:py-32">
+    <section id="faq" className="w-full bg-slate-950 flex justify-center mb-0">
+      <div className="w-full max-w-4xl px-6 lg:px-8 py-12 lg:py-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,12 +53,12 @@ export default function FAQ() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
             Frequently Asked Questions
           </h2>
-          <p className="text-base sm:text-lg text-gray-300">
+          <p className="text-base sm:text-lg text-gray-300 py-2">
             Everything you need to know about Apex
           </p>
         </motion.div>
 
-        <div className="space-y-4">
+        <div className="space-y-5 lg:space-y-6">
           {faqs.map((faq, idx) => (
             <motion.div
               key={idx}
@@ -74,7 +74,7 @@ export default function FAQ() {
                 }
                 className="w-full px-6 sm:px-8 py-5 sm:py-6 bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-between text-left"
               >
-                <span className="font-semibold text-white text-sm sm:text-base">
+                <span className="font-semibold text-white text-sm sm:text-base break-words">
                   {faq.question}
                 </span>
                 <motion.div
@@ -96,8 +96,8 @@ export default function FAQ() {
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-6 sm:px-8 py-5 sm:py-6 bg-white/5 border-t border-white/10">
-                      <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
+                    <div className="px-6 sm:px-8 py-5 sm:py-6 bg-white/5 border-t border-white/10 overflow-hidden">
+                      <p className="text-gray-300 leading-relaxed text-sm sm:text-base break-words">
                         {faq.answer}
                       </p>
                     </div>
@@ -116,7 +116,7 @@ export default function FAQ() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <p className="text-gray-400 text-sm sm:text-base">
+          <p className="text-gray-400 text-sm sm:text-base pt-2">
             Still have questions?{' '}
             <a
               href="#contact"

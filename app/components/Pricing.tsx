@@ -75,8 +75,8 @@ export default function Pricing() {
   };
 
   return (
-    <section id="pricing" className="w-full bg-slate-950 flex justify-center">
-      <div className="w-full max-w-7xl px-6 lg:px-8 py-24 lg:py-32">
+    <section id="pricing" className="w-full bg-slate-950 flex justify-center mb-0">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,12 +87,12 @@ export default function Pricing() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
             Simple Pricing
           </h2>
-          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-8 py-2">
             Choose the perfect plan for your team. Flexible and transparent.
           </p>
 
           {/* Toggle */}
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-4 py-3">
             <span className={`text-sm font-medium ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>
               Monthly
             </span>
@@ -123,19 +123,13 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className={`relative rounded-2xl border transition-all duration-300 h-full flex flex-col ${
+              className={`relative rounded-2xl border transition-all duration-300 h-full flex flex-col overflow-hidden ${
                 plan.highlighted
                   ? 'border-blue-500/50 bg-blue-500/10 ring-1 ring-blue-500/20'
                   : 'border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10'
               }`}
             >
-              {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full">
-                    MOST POPULAR
-                  </span>
-                </div>
-              )}
+                
 
               <div className="p-6 sm:p-8 flex flex-col h-full">
                 <div className="mb-8">
@@ -150,7 +144,7 @@ export default function Pricing() {
                 <div className="mb-8">
                   {plan.monthlyPrice ? (
                     <>
-                      <div className="flex items-baseline gap-2 mb-2">
+                      <div className="flex items-baseline gap-2 mb-2 py-2">
                         <span className="text-3xl sm:text-4xl font-bold text-white">
                           ${isAnnual ? (plan.yearlyPrice! / 12).toFixed(0) : plan.monthlyPrice}
                         </span>
@@ -178,11 +172,11 @@ export default function Pricing() {
                 </button>
 
                 <div className="space-y-4 flex-1">
-                  <p className="text-xs font-semibold text-gray-300 uppercase">Includes</p>
+                  <p className="text-xs font-semibold text-gray-300 uppercase py-2  ">Includes</p>
                   {plan.features.map((feature, featureIdx) => (
                     <div key={featureIdx} className="flex items-start gap-3">
                       <Check size={16} className="text-blue-400 shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-300">{feature}</span>
+                      <span className="text-sm text-gray-300 break-words">{feature}</span>
                     </div>
                   ))}
                 </div>

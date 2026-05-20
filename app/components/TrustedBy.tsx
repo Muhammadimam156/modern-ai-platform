@@ -6,8 +6,8 @@ export default function TrustedBy() {
   const companies = ['Stripe', 'Vercel', 'Linear', 'Notion', 'Framer', 'Raycast'];
 
   return (
-    <section className="w-full bg-slate-950 border-b border-white/5 flex justify-center">
-      <div className="w-full max-w-7xl px-6 lg:px-8 py-16 lg:py-24">
+    <section className="w-full bg-slate-950 border-b border-white/5 flex justify-center mb-0">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -16,7 +16,7 @@ export default function TrustedBy() {
           className="text-center mb-12 lg:mb-16"
         >
           <p className="text-sm sm:text-base text-gray-300 mb-2">Trusted by innovative teams</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">Built for the world's best teams</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white py-2">Built for the world's best teams</h2>
         </motion.div>
 
         <motion.div

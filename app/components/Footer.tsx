@@ -22,7 +22,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-slate-950 border-t border-white/5 flex justify-center">
-      <div className="w-full max-w-7xl px-6 lg:px-8">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
         {/* Main Footer */}
         <div className="py-16 lg:py-20 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand */}

@@ -5,11 +5,11 @@ import { ArrowRight } from 'lucide-react';
 
 export default function FinalCTA() {
   return (
-    <section id="contact" className="w-full bg-slate-950 relative overflow-x-hidden flex justify-center">
+    <section id="contact" className="w-full bg-slate-950 relative overflow-x-hidden flex justify-center mb-0">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 via-transparent to-cyan-500/5 pointer-events-none" />
 
-      <div className="relative w-full max-w-4xl px-6 lg:px-8 py-24 lg:py-32 mx-auto">
+      <div className="relative w-full max-w-4xl px-6 lg:px-8 py-12 lg:py-24 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
-            className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center py-4"
           >
             <button className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-8 sm:px-10 py-4 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 group text-base sm:text-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50">
               Start Your Free Trial
