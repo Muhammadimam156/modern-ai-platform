@@ -11,7 +11,7 @@ export default function FinalCTA() {
       <div className="absolute inset-0 bg-linear-to-br from-indigo-700/10 via-transparent to-cyan-500/8 pointer-events-none" />
 
       <div className="relative w-full max-w-5xl px-6 lg:px-8 py-12 lg:py-24 mx-auto ">
-        <div className="mx-auto max-w-5xl soft-card p-8 sm:p-10 md:p-12 bg-gradient-to-br from-slate-900/60 to-slate-900/40 border border-white/6 round">
+          <div className="mx-auto max-w-5xl soft-card p-8 sm:p-10 md:p-12 bg-linear-to-br from-slate-900/60 to-slate-900/40 border border-white/6 bor">
           <AnimatedSection className="text-center space-y-6 sm:space-y-8" delay={0}>
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white leading-tight">
@@ -23,7 +23,7 @@ export default function FinalCTA() {
             </div>
 
             <AnimatedSection className="flex flex-col sm:flex-row gap-4 justify-center py-4" delay={0.12}>
-              <button className="bg-gradient-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white px-8 sm:px-10 py-4 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-3 shadow-lg shadow-indigo-500/30 hover:scale-[1.02]">
+                    <button className="bg-linear-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white px-8 sm:px-10 py-4 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-3 shadow-lg shadow-indigo-500/30 hover:scale-[1.02]">
                 <span>Start Your Free Trial</span>
                 <ArrowRight size={20} className="opacity-90" />
               </button>

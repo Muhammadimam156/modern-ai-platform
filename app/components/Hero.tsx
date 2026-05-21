@@ -17,17 +17,22 @@ export default function Hero() {
             {/* Badge */}
             <AnimatedSection className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 w-fit" delay={0.06}>
               <div className="w-2 h-2 bg-blue-400 rounded-full" />
-              <span className="text-xs sm:text-sm font-medium text-blue-300">AI-Powered Platform</span>
+              <span className="text-xs sm:text-sm font-medium text-blue-300">AI-Powered SaaS Platform</span>
             </AnimatedSection>
 
             {/* Heading */}
-            <AnimatedSection className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white max-w-xl hero-heading" delay={0.12}>
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.12, duration: 0.8 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white max-w-xl hero-heading"
+            >
               Scale Your Business with <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">AI Automation</span>
-            </AnimatedSection>
+            </motion.h1>
 
             {/* Subheading */}
             <AnimatedSection className="text-base sm:text-lg text-gray-300 leading-relaxed prose-wide max-w-prose" delay={0.18}>
-              Unlock the power of intelligent automation. Streamline workflows, boost productivity, gain real-time insights, and optimize operations with cutting-edge AI.
+              Automate workflows, unlock actionable insights, and help your team move faster with a modern AI platform built for scale.
             </AnimatedSection>
 
             {/* CTA Buttons */}
@@ -37,7 +42,7 @@ export default function Hero() {
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </button>
               <button className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white px-8 py-3.5 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2 text-sm sm:text-base w-full sm:w-auto">
-                View Demo
+                Book a Demo
               </button>
             </AnimatedSection>
           </AnimatedSection>

@@ -32,8 +32,8 @@ export default function Footer() {
             <div className="text-2xl font-bold bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4">
               Apex
             </div>
-            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-6">
-              Intelligent automation platform for modern teams.
+              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-6">
+              Premium AI automation for modern teams.
             </p>
             <div className="flex gap-3">
               {socialIcons.map(({ Icon, href, label }, idx) => (
@@ -82,7 +82,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="px-5 py-2.5 bg-gradient-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white rounded-lg font-semibold transition-transform hover:scale-[1.02]"
+                className="px-5 py-2.5 bg-linear-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white rounded-lg font-semibold transition-transform hover:scale-[1.02]"
               >
                 Subscribe
               </button>

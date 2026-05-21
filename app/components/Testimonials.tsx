@@ -5,6 +5,15 @@ import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import AnimatedSection from './ui/AnimatedSection';
 
+const avatarStyles = [
+  'from-blue-500 to-cyan-400',
+  'from-indigo-500 to-blue-500',
+  'from-cyan-500 to-teal-400',
+  'from-sky-500 to-blue-400',
+  'from-violet-500 to-fuchsia-500',
+  'from-emerald-500 to-cyan-500',
+];
+
 export default function Testimonials() {
   const testimonials = [
     {
@@ -89,10 +98,9 @@ export default function Testimonials() {
               <p className="text-gray-300 mb-6 leading-relaxed text-sm line-clamp-4">"{testimonial.content}"</p>
 
               <div className="flex items-center gap-4 mt-auto">
-                <div
-                  className="w-12 h-12 rounded-full bg-cover bg-center flex items-center justify-center shrink-0"
-                  style={{ backgroundImage: `url(https://i.pravatar.cc/64?u=${encodeURIComponent(testimonial.name)})` }}
-                />
+                <div className={`w-12 h-12 rounded-full bg-linear-to-br ${avatarStyles[idx % avatarStyles.length]} flex items-center justify-center shrink-0 shadow-lg`}>
+                  <span className="text-white font-semibold text-sm">{testimonial.avatar}</span>
+                </div>
                 <div>
                   <p className="text-white font-semibold text-sm">{testimonial.name}</p>
                   <p className="text-gray-300 text-xs">{testimonial.role}</p>
@@ -136,10 +144,9 @@ function MobileCarousel({ items }: { items: any[] }) {
           </div>
           <p className="text-gray-300 mb-4 text-sm leading-relaxed">"{item.content}"</p>
           <div className="flex items-center gap-3">
-            <div
-              className="w-10 h-10 rounded-full bg-cover bg-center flex items-center justify-center shrink-0"
-              style={{ backgroundImage: `url(https://i.pravatar.cc/64?u=${encodeURIComponent(item.name)})` }}
-            />
+            <div className={`w-10 h-10 rounded-full bg-linear-to-br ${avatarStyles[i % avatarStyles.length]} flex items-center justify-center shrink-0 shadow-lg`}>
+              <span className="text-white font-semibold text-xs">{item.avatar}</span>
+            </div>
             <div>
               <p className="text-white font-semibold text-sm">{item.name}</p>
               <p className="text-gray-300 text-xs">{item.role}</p>

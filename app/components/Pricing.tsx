@@ -119,7 +119,7 @@ export default function Pricing() {
               viewport={{ once: true }}
               className={`relative rounded-2xl transition-all duration-300 h-full flex flex-col overflow-hidden soft-card shadow-md ${
                 plan.highlighted
-                  ? 'ring-2 ring-offset-2 ring-blue-500/30 bg-gradient-to-br from-slate-900/60 to-slate-900/40'
+                  ? 'ring-2 ring-offset-2 ring-blue-500/30 bg-linear-to-br from-slate-900/60 to-slate-900/40'
                   : 'border border-white/10 bg-white/5 hover:scale-[1.01]'
               }`}
             >
@@ -127,7 +127,7 @@ export default function Pricing() {
 
               <div className="p-6 sm:p-8 flex flex-col h-full">
                 {plan.highlighted && (
-                  <div className="absolute -top-3 left-4 inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-gradient-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white shadow-sm">
+                  <div className="absolute -top-3 left-4 inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-linear-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white shadow-sm">
                     Most popular
                   </div>
                 )}
@@ -163,7 +163,7 @@ export default function Pricing() {
                 <button
                   className={`w-full py-3 rounded-lg font-semibold transition-all mb-8 ${
                     plan.highlighted
-                      ? 'bg-gradient-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white shadow-lg shadow-indigo-500/30'
+                      ? 'bg-linear-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white shadow-lg shadow-indigo-500/30'
                       : 'bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white'
                   }`}
                 >
