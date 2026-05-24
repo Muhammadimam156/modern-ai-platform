@@ -91,7 +91,7 @@ export default function DashboardPreview() {
                     </div>
                   </div>
 
-                  <aside className="space-y-4  flex flex-col gap-6">
+                  <aside className="space-y-4  flex flex-col gap-2">
                     <div className="bg-white/5 border border-white/10 rounded-lg p-4 ">
                       <p className="text-xs text-gray-400">AI Insights</p>
                       <p className="text-sm font-semibold text-white mt-2">Automations predicted to save 6h/week</p>
