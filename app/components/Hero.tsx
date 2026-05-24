@@ -6,18 +6,18 @@ import AnimatedSection from './ui/AnimatedSection';
 
 export default function Hero() {
   return (
-    <section className="w-full relative bg-slate-950 overflow-x-hidden flex justify-center pt-24 lg:pt-32 mb-0">
+    <section className="w-full relative bg-slate-950 overflow-x-hidden flex justify-center pt-20 lg:pt-28 mb-0">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 via-transparent to-cyan-500/5 pointer-events-none" />
       
-      <div className="relative w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
+      <div className="relative w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
           <AnimatedSection className="space-y-8 w-full" delay={0}>
             {/* Badge */}
             <AnimatedSection className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 w-fit" delay={0.06}>
               <div className="w-2 h-2 bg-blue-400 rounded-full" />
-              <span className="text-xs sm:text-sm font-medium text-blue-300">AI-Powered SaaS Platform</span>
+              <span className="text-xs sm:text-sm font-medium text-blue-300 ">AI-Powered SaaS Platform</span>
             </AnimatedSection>
 
             {/* Heading */}
@@ -25,7 +25,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.12, duration: 0.8 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white max-w-xl hero-heading"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white max-w-xl hero-heading pt-2"
             >
               Scale Your Business with <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">AI Automation</span>
             </motion.h1>

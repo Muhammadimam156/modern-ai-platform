@@ -6,12 +6,12 @@ import AnimatedSection from './ui/AnimatedSection';
 export default function DashboardPreview() {
   return (
     <section className="w-full bg-slate-950 overflow-x-hidden flex justify-center mb-0">
-      <div className="relative w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
+      <div className="relative w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-20">
         <div className="absolute inset-0 bg-linear-to-br from-blue-500/6 via-transparent to-cyan-500/6 pointer-events-none" />
 
         <AnimatedSection className="relative z-10 text-center mb-12 lg:mb-16" delay={0}>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 text-white">Productive analytics, simplified</h2>
-          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto prose-wide">Monitor performance, automate work, and get predictive insights powered by AI.</p>
+          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto prose-wide pb-2">Monitor performance, automate work, and get predictive insights powered by AI.</p>
         </AnimatedSection>
 
         <AnimatedSection className="relative z-10 w-full" delay={0.12}>
@@ -20,7 +20,7 @@ export default function DashboardPreview() {
               {/* Side nav */}
               <aside className="lg:col-span-3 xl:col-span-2 hidden lg:block">
                 <nav className="space-y-3">
-                  <div className="px-3 py-2 rounded-lg bg-white/5 border border-white/6 flex items-center gap-3">
+                  <div className="px-3 py-2 rounded-lg bg-white/5 border border-white/6 flex items-center gap-3 pb-2">
                     <div className="w-9 h-9 rounded-md bg-linear-to-r from-blue-500 to-cyan-400 flex items-center justify-center text-white font-semibold">A</div>
                     <div>
                       <p className="text-sm font-semibold text-white">Apex</p>
@@ -41,7 +41,7 @@ export default function DashboardPreview() {
                         active ? 'bg-linear-to-r from-blue-600 to-cyan-500 text-white shadow-sm' : 'hover:bg-white/5 text-gray-300'
                       }`}
                     >
-                      <span className="text-sm font-medium">{label}</span>
+                      <span className="text-sm font-medium py-2">{label}</span>
                       {active && <span className="text-xs text-white/90">●</span>}
                     </div>
                   ))}
@@ -70,7 +70,7 @@ export default function DashboardPreview() {
                   ))}
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 py-2">
                   <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-lg p-4 h-64 flex flex-col">
                     <div className="flex items-center justify-between mb-3">
                       <div>
@@ -91,8 +91,8 @@ export default function DashboardPreview() {
                     </div>
                   </div>
 
-                  <aside className="space-y-4">
-                    <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                  <aside className="space-y-4  flex flex-col gap-6">
+                    <div className="bg-white/5 border border-white/10 rounded-lg p-4 ">
                       <p className="text-xs text-gray-400">AI Insights</p>
                       <p className="text-sm font-semibold text-white mt-2">Automations predicted to save 6h/week</p>
                     </div>
@@ -109,7 +109,7 @@ export default function DashboardPreview() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                   <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-white">Recent Activity</p>
+                    <p className="text-sm font-semibold text-white pb-2">Recent Activity</p>
                     <ul className="mt-3 space-y-2 text-sm text-gray-300">
                       <li>✓ Workflow deployed (2m ago)</li>
                       <li>✓ Integration synced (5m ago)</li>
@@ -117,8 +117,8 @@ export default function DashboardPreview() {
                     </ul>
                   </div>
 
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-white">Top Integrations</p>
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-4  ">
+                    <p className="text-sm font-semibold text-white pb-5">Top Integrations</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {['Slack','Stripe','GitHub','Notion'].map((i) => (
                         <span key={i} className="text-xs px-2 py-1 bg-white/3 rounded text-gray-200">{i}</span>
@@ -127,10 +127,10 @@ export default function DashboardPreview() {
                   </div>
 
                   <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-white">Quick Actions</p>
+                    <p className="text-sm font-semibold text-white pb-2">Quick Actions</p>
                     <div className="mt-3 flex flex-col gap-2">
-                      <button className="text-sm bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded">Create Workflow</button>
-                      <button className="text-sm bg-white/10 hover:bg-white/20 text-white px-3 py-2 rounded">Connect Integration</button>
+                      <button className="text-sm bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg">Create Workflow</button>
+                      <button className="text-sm bg-white/10 hover:bg-white/20 text-white px-3 py-2 rounded-lg">Connect Integration</button>
                     </div>
                   </div>
                 </div>

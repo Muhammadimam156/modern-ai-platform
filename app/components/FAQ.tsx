@@ -42,7 +42,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="w-full bg-slate-950 flex justify-center mb-0">
-      <div className="w-full max-w-4xl px-6 lg:px-8 py-12 lg:py-24">
+      <div className="w-full max-w-4xl px-6 lg:px-8 py-12 lg:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

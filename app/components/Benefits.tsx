@@ -30,7 +30,7 @@ export default function Benefits() {
 
   return (
     <section id="solutions" className="w-full bg-slate-950 flex justify-center mb-0">
-      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left - Heading */}
           <AnimatedSection delay={0}>
@@ -49,7 +49,7 @@ export default function Benefits() {
                     viewport={{ once: true }}
                     className="flex gap-4 py-2"
                   >
-                    <div className="shrink-0">
+                    <div className="shrink-0 py-2">
                       <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500/20 border border-blue-500/30">
                         <Icon className="text-blue-400" size={24} strokeWidth={1.5} />
                       </div>
@@ -76,6 +76,7 @@ export default function Benefits() {
             viewport={{ once: true }}
             className="space-y-8 gap-8"
           >
+            <div className="flex flex-col gap-3">
             <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 sm:p-8 overflow-hidden soft-card transform hover:-translate-y-2 transition-transform duration-300 shadow-sm">
               <p className="text-xs font-semibold text-red-300 mb-4">Without Apex</p>
               <div className="space-y-3 ">
@@ -92,6 +93,7 @@ export default function Benefits() {
                 <p className="text-white font-semibold text-sm sm:text-base py-1">✅ 99.9% accuracy</p>
                 <p className="text-white font-semibold text-sm sm:text-base py-1">✅ Real-time insights</p>
               </div>
+            </div>
             </div>
 
             {/* Stats */}

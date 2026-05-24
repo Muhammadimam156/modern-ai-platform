@@ -7,13 +7,13 @@ export default function TrustedBy() {
 
   return (
     <section className="w-full bg-slate-950 border-b border-white/5 flex justify-center mb-0">
-      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-20">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12 lg:mb-16"
+          className="text-center mb-10 lg:mb-12"
         >
           <p className="text-sm sm:text-base text-gray-300 mb-2">Trusted by innovative teams</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white py-2">Built for the world's best teams</h2>

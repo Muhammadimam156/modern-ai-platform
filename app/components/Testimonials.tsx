@@ -68,7 +68,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="w-full bg-slate-950 flex justify-center mb-0">
-      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-20">
         <AnimatedSection className="text-center mb-16 lg:mb-20" delay={0}>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white ">
             Loved by Teams

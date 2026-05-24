@@ -1,10 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import AnimatedSection from './ui/AnimatedSection';
 import { Mail, Share2, FileText, Heart } from 'lucide-react';
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [submitState, setSubmitState] = useState<'idle' | 'success'>('idle');
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
@@ -21,9 +24,17 @@ export default function Footer() {
     { Icon: Heart, href: '#', label: 'Support' },
   ];
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!email.trim()) return;
+
+    setSubmitState('success');
+    setEmail('');
+  };
+
   return (
     <footer className="w-full bg-slate-950 border-t border-white/5 flex justify-center">
-      <div className="w-full max-w-7xl px-6 lg:px-8 py-10 lg:py-16">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-20">
         <div className="soft-card p-6 md:p-8 bg-white/2 border border-white/6 rounded-3xl">
           {/* Main Footer */}
           <div className="py-8 md:py-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-10">
@@ -73,20 +84,27 @@ export default function Footer() {
               <h3 className="text-lg sm:text-xl font-bold text-white mb-1">Stay updated</h3>
               <p className="text-sm text-gray-300">Get the latest updates on features and AI insights.</p>
             </div>
-            <form className="flex w-full lg:w-auto max-w-lg gap-3">
+            <form onSubmit={handleSubmit} className="flex w-full flex-col sm:flex-row lg:w-auto max-w-lg gap-3">
               <input
                 type="email"
                 placeholder="Enter your email"
                 aria-label="Email address"
-                className="flex-1 px-4 py-2.5 rounded-lg bg-white/4 border border-white/8 text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-shadow"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                className="flex-1 min-w-0 px-4 py-3 rounded-lg bg-white/4 border border-white/8 text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-shadow"
               />
               <button
                 type="submit"
-                className="px-5 py-2.5 bg-linear-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white rounded-lg font-semibold transition-transform hover:scale-[1.02]"
+                className="w-full sm:w-auto px-5 py-3 bg-linear-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white rounded-lg font-semibold transition-transform hover:scale-[1.02]"
               >
                 Subscribe
               </button>
             </form>
+            {submitState === 'success' && (
+              <p className="mt-3 text-xs sm:text-sm text-emerald-400">
+                Thanks. We&apos;ll send updates to your inbox.
+              </p>
+            )}
           </div>
         </AnimatedSection>
 

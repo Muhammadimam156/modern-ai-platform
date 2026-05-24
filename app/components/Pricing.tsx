@@ -77,7 +77,7 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="w-full bg-slate-950 flex justify-center mb-0">
-      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-24">
+      <div className="w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-20">
         <AnimatedSection className="text-center mb-16 lg:mb-20" delay={0}>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
             Simple Pricing
@@ -87,7 +87,7 @@ export default function Pricing() {
           </p>
 
           {/* Toggle */}
-          <div className="flex items-center justify-center gap-4 py-3">
+          <div className="flex items-center justify-center gap-4 py-5">
             <span className={`text-sm font-medium ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>
               Monthly
             </span>
@@ -117,7 +117,7 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.06, duration: 0.6 }}
               viewport={{ once: true }}
-              className={`relative rounded-2xl transition-all duration-300 h-full flex flex-col overflow-hidden soft-card shadow-md ${
+              className={`relative rounded-2xl transition-all duration-300 h-full flex flex-col overflow-visible soft-card shadow-md ${
                 plan.highlighted
                   ? 'ring-2 ring-offset-2 ring-blue-500/30 bg-linear-to-br from-slate-900/60 to-slate-900/40'
                   : 'border border-white/10 bg-white/5 hover:scale-[1.01]'
@@ -125,9 +125,9 @@ export default function Pricing() {
             >
 
 
-              <div className="p-6 sm:p-8 flex flex-col h-full">
+              <div className="p-6 sm:p-8 flex flex-col h-full ">
                 {plan.highlighted && (
-                  <div className="absolute -top-3 left-4 inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-linear-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white shadow-sm">
+                  <div className="absolute -top-4 left-6 z-10 inline-flex items-center rounded-full px-3 py-2 text-[10px] sm:text-xs font-bold bg-linear-to-r from-indigo-600 via-blue-500 to-cyan-400 text-white shadow-md whitespace-nowrap " >
                     Most popular
                   </div>
                 )}
@@ -135,7 +135,7 @@ export default function Pricing() {
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                     {plan.name}
                   </h3>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-400 ">
                     {plan.description}
                   </p>
                 </div>
@@ -150,13 +150,13 @@ export default function Pricing() {
                         <span className="text-gray-300 text-sm">/month</span>
                       </div>
                       {isAnnual && (
-                        <p className="text-xs text-gray-300">
+                        <p className="text-xs text-gray-300 pb-2">
                           ${plan.yearlyPrice}/year billed annually
                         </p>
                       )}
                     </>
                   ) : (
-                    <p className="text-lg font-semibold text-white">Custom pricing</p>
+                    <p className="text-lg font-semibold text-white py-3.5">Custom pricing</p>
                   )}
                 </div>
 

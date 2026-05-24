@@ -10,8 +10,8 @@ export default function FinalCTA() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-linear-to-br from-indigo-700/10 via-transparent to-cyan-500/8 pointer-events-none" />
 
-      <div className="relative w-full max-w-5xl px-6 lg:px-8 py-12 lg:py-24 mx-auto ">
-          <div className="mx-auto max-w-5xl soft-card p-8 sm:p-10 md:p-12 bg-linear-to-br from-slate-900/60 to-slate-900/40 border border-white/6 bor">
+      <div className="relative w-full max-w-5xl px-6 lg:px-8 py-12 lg:py-20 mx-auto">
+        <div className="mx-auto max-w-5xl soft-card p-8 sm:p-10 md:p-12 bg-linear-to-br from-slate-900/60 to-slate-900/40 border border-white/6">
           <AnimatedSection className="text-center space-y-6 sm:space-y-8" delay={0}>
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white leading-tight">
