@@ -30,7 +30,7 @@ const activities = [
 
 export default function DashboardPreview() {
   return (
-    <div className="w-full flex justify-center items-center">
+    <div className="w-full flex justify-center items-center py-12 lg:py-20">
       {/* Outer glow */}
       <div
         className="absolute -inset-3 pointer-events-none rounded-2xl"
