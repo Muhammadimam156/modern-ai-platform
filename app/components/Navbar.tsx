@@ -17,6 +17,28 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle hash navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
+      }
+    };
+
+    // Handle initial hash on mount
+    handleHashChange();
+
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   const navLinks = [
     { name: 'Features', href: '#features' },
     { name: 'Solutions', href: '#solutions' },
@@ -85,7 +107,7 @@ export default function Navbar() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? 'auto' : 0 }}
           transition={{ duration: 0.3 }}
-          className="lg:hidden overflow-hidden"
+          className={`lg:hidden overflow-hidden ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
         >
           <div className="px-2 pt-4 pb-4 space-y-2">
             {navLinks.map((link) => (

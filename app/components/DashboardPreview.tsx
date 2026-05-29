@@ -1,144 +1,264 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import AnimatedSection from './ui/AnimatedSection';
+
+const stats = [
+  { label: 'Total Users', value: '12,543', change: '↑ 18.2%', up: true,  icon: '👥', color: 'text-white' },
+  { label: 'Revenue',     value: '$245K',  change: '↑ 12.5%', up: true,  icon: '💰', color: 'text-blue-400' },
+  { label: 'Growth Rate', value: '+32%',   change: '↑ 4.1%',  up: true,  icon: '📈', color: 'text-green-400' },
+  { label: 'Active Tasks',value: '348',    change: '↓ 3 tasks',up: false, icon: '✦', color: 'text-purple-400' },
+];
+
+const bars = [22, 40, 30, 60, 52, 80, 70, 90, 62, 75, 85, 65];
+const projBars = [37, 54, 45, 70, 60, 85, 78, 98, 70, 82, 90, 75];
+
+const navMain = [
+  { label: 'Overview',    icon: '⊞', active: true,  badge: null },
+  { label: 'Analytics',   icon: '↗', active: false, badge: 'New' },
+  { label: 'Automations', icon: '⚡', active: false, badge: null },
+];
+const navConfig = [
+  { label: 'Integrations', icon: '⊕' },
+  { label: 'Settings',     icon: '◎' },
+];
+
+const activities = [
+  { dot: 'bg-green-400', text: 'Email Digest automation deployed', time: '2m ago' },
+  { dot: 'bg-blue-400',  text: '156 users joined via referral',    time: '14m ago' },
+  { dot: 'bg-amber-400', text: 'Revenue milestone $200K reached',  time: '1h ago' },
+];
 
 export default function DashboardPreview() {
   return (
-    <section className="w-full bg-slate-950 overflow-x-hidden flex justify-center mb-0">
-      <div className="relative w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-20">
-        <div className="absolute inset-0 bg-linear-to-br from-blue-500/6 via-transparent to-cyan-500/6 pointer-events-none" />
+    <div className="w-full flex justify-center items-center">
+      {/* Outer glow */}
+      <div
+        className="absolute -inset-3 pointer-events-none rounded-2xl"
+        style={{
+          background:
+            'radial-gradient(ellipse at center, rgba(37,99,235,0.10) 0%, transparent 70%)',
+        }}
+      />
 
-        <AnimatedSection className="relative z-10 text-center mb-12 lg:mb-16" delay={0}>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 text-white">Productive analytics, simplified</h2>
-          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto prose-wide pb-2">Monitor performance, automate work, and get predictive insights powered by AI.</p>
-        </AnimatedSection>
+      <div className="relative rounded-2xl overflow-hidden border border-blue-500/[0.14] bg-slate-900 shadow-2xl shadow-black/50">
 
-        <AnimatedSection className="relative z-10 w-full" delay={0.12}>
-          <div className="w-full soft-card p-4 sm:p-6 lg:p-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              {/* Side nav */}
-              <aside className="lg:col-span-3 xl:col-span-2 hidden lg:block">
-                <nav className="space-y-3">
-                  <div className="px-3 py-2 rounded-lg bg-white/5 border border-white/6 flex items-center gap-3 pb-2">
-                    <div className="w-9 h-9 rounded-md bg-linear-to-r from-blue-500 to-cyan-400 flex items-center justify-center text-white font-semibold">A</div>
-                    <div>
-                      <p className="text-sm font-semibold text-white">Apex</p>
-                      <p className="text-xs text-gray-400">Workspace</p>
-                    </div>
+        {/* ── Title bar ── */}
+        <h1 className="text-5xl font-bold text-white px-4 py-3 mt-3 text-center ">Productive analytics, simplified</h1>
+        <p className=" text-slate-400 px-4 py-2">Monitor performance, automate work, and get predictive insights powered by AI.</p>
+        <div className="flex items-center gap-1.5 px-4 py-3 bg-white/[0.025] border-b border-white/[0.055]">
+          <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+          <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+        </div>
+
+        {/* ── Body: sidebar + main ── */}
+        <div className="flex">
+
+          {/* Sidebar */}
+          <aside className="hidden lg:flex flex-col w-[168px] shrink-0 border-r border-white/[0.055] bg-white/[0.018] p-3">
+
+            {/* Brand */}
+            <div className="flex items-center gap-2.5 px-2 py-1.5 mb-3">
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-white font-bold text-xs shrink-0">
+                A
+              </div>
+              <div>
+                <p className="text-[12px] font-semibold text-white leading-none">Apex</p>
+                <p className="text-[10px] text-slate-500 mt-0.5">Workspace</p>
+              </div>
+            </div>
+
+            {/* Nav — Main */}
+            <p className="text-[9px] font-semibold text-slate-600 uppercase tracking-widest px-2 mb-1">
+              Main
+            </p>
+            {navMain.map((item) => (
+              <div
+                key={item.label}
+                className={`flex items-center gap-2 px-2.5 py-[6px] rounded-lg text-[11px] mb-0.5 transition-colors ${
+                  item.active
+                    ? 'bg-blue-500/15 text-blue-300 font-medium'
+                    : 'text-slate-500 hover:bg-white/5 hover:text-slate-300'
+                }`}
+              >
+                <span className="text-[13px] w-4 text-center">{item.icon}</span>
+                <span>{item.label}</span>
+                {item.badge && (
+                  <span className="ml-auto text-[8px] font-semibold bg-blue-500/20 text-blue-400 px-1.5 py-0.5 rounded">
+                    {item.badge}
+                  </span>
+                )}
+              </div>
+            ))}
+
+            {/* Nav — Config */}
+            <p className="text-[9px] font-semibold text-slate-600 uppercase tracking-widest px-2 mt-3 mb-1">
+              Config
+            </p>
+            {navConfig.map((item) => (
+              <div
+                key={item.label}
+                className="flex items-center gap-2 px-2.5 py-[6px] rounded-lg text-[11px] text-slate-500 hover:bg-white/5 hover:text-slate-300 transition-colors mb-0.5"
+              >
+                <span className="text-[13px] w-4 text-center">{item.icon}</span>
+                <span>{item.label}</span>
+              </div>
+            ))}
+
+            {/* AI Usage meter */}
+            <div className="mt-auto pt-4 px-1">
+              <p className="text-[9px] text-slate-600 mb-1.5">AI Usage</p>
+              <div className="h-1 bg-white/[0.07] rounded-full overflow-hidden">
+                <div className="h-full w-[72%] bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full" />
+              </div>
+              <p className="text-[9px] text-slate-600 mt-1">72% of 1000 credits</p>
+            </div>
+          </aside>
+
+          {/* Main content */}
+          <main className="flex-1 min-w-0 p-4 lg:p-5 flex flex-col gap-4">
+
+            {/* Header row */}
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-[13px] font-semibold text-white">Good morning, Sarah 👋</p>
+                <p className="text-[10px] text-slate-500 mt-0.5">Here's what's happening today</p>
+              </div>
+              <div className="flex gap-2">
+                <button className="text-[10px] px-3 py-1.5 rounded-lg bg-white/[0.06] border border-white/[0.08] text-slate-400 font-medium">
+                  Export
+                </button>
+                <button className="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold">
+                  + New
+                </button>
+              </div>
+            </div>
+
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
+              {stats.map((s, i) => (
+                <motion.div
+                  key={i}
+                  whileHover={{ y: -2, scale: 1.02 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                  className="bg-white/[0.04] border border-white/[0.07] rounded-xl p-3 cursor-pointer hover:border-blue-500/20 transition-colors"
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[9px] text-slate-500 font-medium uppercase tracking-wide">
+                      {s.label}
+                    </span>
+                    <span className="text-[11px] opacity-60">{s.icon}</span>
                   </div>
+                  <p className={`text-[17px] font-bold mb-1.5 ${s.color}`}>{s.value}</p>
+                  <span
+                    className={`text-[9px] font-semibold px-1.5 py-0.5 rounded inline-block ${
+                      s.up
+                        ? 'bg-green-500/10 text-green-400'
+                        : 'bg-red-500/10 text-red-400'
+                    }`}
+                  >
+                    {s.change}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
 
-                  {[
-                    ['Overview', true],
-                    ['Analytics', false],
-                    ['Automations', false],
-                    ['Integrations', false],
-                    ['Settings', false],
-                  ].map(([label, active], i) => (
-                    <div
-                      key={String(i)}
-                      className={`px-3 py-2 rounded-lg transition-colors flex items-center justify-between ${
-                        active ? 'bg-linear-to-r from-blue-600 to-cyan-500 text-white shadow-sm' : 'hover:bg-white/5 text-gray-300'
-                      }`}
-                    >
-                      <span className="text-sm font-medium py-2">{label}</span>
-                      {active && <span className="text-xs text-white/90">●</span>}
+            {/* Charts row */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+
+              {/* Bar chart */}
+              <div className="lg:col-span-2 bg-white/[0.03] border border-white/[0.07] rounded-xl p-4">
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <p className="text-[11px] font-semibold text-white">Revenue Overview</p>
+                    <p className="text-[9px] text-slate-500 mt-0.5">Last 30 days · Actual vs Projected</p>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="flex items-center gap-1 text-[8px] text-slate-500">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 inline-block" />
+                      Actual
+                    </span>
+                    <span className="flex items-center gap-1 text-[8px] text-slate-500">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500/25 inline-block" />
+                      Projected
+                    </span>
+                  </div>
+                </div>
+
+                {/* Bars */}
+                <div className="flex items-end gap-1 h-[72px]">
+                  {bars.map((h, i) => (
+                    <div key={i} className="flex-1 flex flex-col items-center gap-0.5 h-full justify-end">
+                      <div
+                        className="w-full bg-blue-500/[0.18] rounded-t-sm"
+                        style={{ height: `${projBars[i]}%` }}
+                      />
+                      <div
+                        className="w-full bg-gradient-to-t from-blue-500 to-cyan-400 rounded-t-sm opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                        style={{ height: `${h}%` }}
+                      />
                     </div>
                   ))}
-                </nav>
-              </aside>
+                </div>
 
-              {/* Main area */}
-              <main className="lg:col-span-9 xl:col-span-10 space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {[
-                    { label: 'Total Users', value: '12,543', tone: 'white' },
-                    { label: 'Revenue', value: '$245K', tone: 'blue' },
-                    { label: 'Growth', value: '+32%', tone: 'green' },
-                    { label: 'Active Tasks', value: '348', tone: 'white' },
-                  ].map((s, i) => (
-                    <motion.div
-                      key={i}
-                      whileHover={{ y: -6 }}
-                      className="rounded-lg p-4 bg-white/5 border border-white/8"
-                    >
-                      <p className="text-xs text-gray-400 mb-2">{s.label}</p>
-                      <p className={`text-lg sm:text-xl font-bold ${s.tone === 'blue' ? 'text-blue-300' : s.tone === 'green' ? 'text-green-300' : 'text-white'}`}>
-                        {s.value}
-                      </p>
-                    </motion.div>
+                {/* Axis */}
+                <div className="flex justify-between mt-1.5">
+                  {['May 1', 'May 10', 'May 20', 'May 29'].map((d) => (
+                    <span key={d} className="text-[8px] text-slate-600">{d}</span>
                   ))}
                 </div>
+              </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 py-2">
-                  <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-lg p-4 h-64 flex flex-col">
-                    <div className="flex items-center justify-between mb-3">
-                      <div>
-                        <p className="text-sm font-semibold text-white">Revenue (30d)</p>
-                        <p className="text-xs text-gray-400">Projected revenue and churn</p>
-                      </div>
-                      <div className="text-xs text-gray-400">Last 30 days</div>
-                    </div>
-
-                    <div className="flex-1 flex items-end gap-2">
-                      {[20, 40, 30, 60, 50, 80, 70, 90, 60, 75, 85].map((h, i) => (
-                        <div
-                          key={i}
-                          className="flex-1 bg-linear-to-t from-blue-500 to-cyan-400 rounded-t transition-all"
-                          style={{ height: `${h}%` }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  <aside className="space-y-4  flex flex-col gap-2">
-                    <div className="bg-white/5 border border-white/10 rounded-lg p-4 ">
-                      <p className="text-xs text-gray-400">AI Insights</p>
-                      <p className="text-sm font-semibold text-white mt-2">Automations predicted to save 6h/week</p>
-                    </div>
-
-                    <div className="bg-white/5 border border-white/10 rounded-lg p-3">
-                      <p className="text-xs text-gray-400">Health</p>
-                      <div className="flex items-center gap-3 mt-2">
-                        <div className="w-3 h-3 rounded-full bg-green-400" />
-                        <p className="text-sm text-white">All systems operational</p>
-                      </div>
-                    </div>
-                  </aside>
+              {/* Right panel */}
+              <div className="flex flex-col gap-3">
+                {/* AI Insights */}
+                <div className="flex-1 bg-blue-500/[0.06] border border-blue-500/[0.16] rounded-xl p-3">
+                  <div className="text-base mb-2">🤖</div>
+                  <p className="text-[11px] font-semibold text-white">AI Insights</p>
+                  <p className="text-[9px] text-slate-500 mt-0.5 mb-2">Powered by GPT-4</p>
+                  <p className="text-[10px] text-slate-400 leading-relaxed">
+                    Save{' '}
+                    <span className="text-blue-400 font-semibold">~6 hrs/week</span>{' '}
+                    with automations. Revenue is{' '}
+                    <span className="text-blue-400 font-semibold">+18%</span>{' '}
+                    above forecast.
+                  </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-white pb-2">Recent Activity</p>
-                    <ul className="mt-3 space-y-2 text-sm text-gray-300">
-                      <li>✓ Workflow deployed (2m ago)</li>
-                      <li>✓ Integration synced (5m ago)</li>
-                      <li>✓ Report exported (20m ago)</li>
-                    </ul>
+                {/* Monthly Goal */}
+                <div className="bg-white/[0.03] border border-white/[0.07] rounded-xl p-3">
+                  <div className="flex justify-between items-center mb-1.5">
+                    <p className="text-[10px] font-semibold text-white">Monthly Goal</p>
+                    <p className="text-[11px] font-bold text-blue-400">84%</p>
                   </div>
-
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-4  ">
-                    <p className="text-sm font-semibold text-white pb-5">Top Integrations</p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {['Slack','Stripe','GitHub','Notion'].map((i) => (
-                        <span key={i} className="text-xs px-2 py-1 bg-white/3 rounded text-gray-200">{i}</span>
-                      ))}
-                    </div>
+                  <div className="h-1 bg-white/[0.07] rounded-full overflow-hidden">
+                    <div className="h-full w-[84%] bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full" />
                   </div>
-
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-white pb-2">Quick Actions</p>
-                    <div className="mt-3 flex flex-col gap-2">
-                      <button className="text-sm bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg">Create Workflow</button>
-                      <button className="text-sm bg-white/10 hover:bg-white/20 text-white px-3 py-2 rounded-lg">Connect Integration</button>
-                    </div>
-                  </div>
+                  <p className="text-[9px] text-slate-600 mt-1.5">$205K of $245K target</p>
                 </div>
-              </main>
+              </div>
             </div>
+
+            {/* Activity feed */}
+            <div className="bg-white/[0.03] border border-white/[0.07] rounded-xl p-4">
+              <p className="text-[11px] font-semibold text-white mb-2.5">Recent Activity</p>
+              <div className="space-y-0">
+                {activities.map((a, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2.5 py-2 border-b border-white/[0.04] last:border-0 last:pb-0"
+                  >
+                    <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${a.dot}`} />
+                    <span className="text-[10px] text-slate-400 flex-1">{a.text}</span>
+                    <span className="text-[9px] text-slate-600 shrink-0">{a.time}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </AnimatedSection>
+
+          </main>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -1,104 +1,266 @@
 "use client";
 
-import { ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import AnimatedSection from './ui/AnimatedSection';
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import AnimatedSection from "./ui/AnimatedSection";
+
+const stats = [
+  {
+    label: "Total Users",
+    value: "12,543",
+    change: "+18.2%",
+    up: true,
+    icon: "👥",
+    color: "text-white",
+  },
+  {
+    label: "Revenue",
+    value: "$245K",
+    change: "+12.5%",
+    up: true,
+    icon: "💰",
+    color: "text-cyan-400",
+  },
+  {
+    label: "Growth Rate",
+    value: "+32%",
+    change: "+4.1%",
+    up: true,
+    icon: "📈",
+    color: "text-emerald-400",
+  },
+  {
+    label: "Active Tasks",
+    value: "348",
+    change: "-3 tasks",
+    up: false,
+    icon: "✦",
+    color: "text-purple-400",
+  },
+];
+
+const chartBars = [32, 45, 40, 68, 52, 80, 74, 92, 70, 76, 88, 65];
 
 export default function Hero() {
   return (
-    <section className="w-full relative bg-slate-950 overflow-x-hidden flex justify-center pt-20 lg:pt-28 mb-0">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 via-transparent to-cyan-500/5 pointer-events-none" />
-      
-      <div className="relative w-full max-w-7xl px-6 lg:px-8 py-12 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left Content */}
-          <AnimatedSection className="space-y-8 w-full" delay={0}>
+    <section className="relative isolate flex min-h-screen w-full items-center justify-center overflow-x-hidden bg-slate-950 pt-24 lg:pt-28">
+
+      {/* Background Glow */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 50% at 50% -5%, rgba(37,99,235,0.12) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* Main Container */}
+      <div className="relative mx-auto flex w-full max-w-7xl items-center justify-center px-6 py-20 lg:px-8 lg:py-24">
+
+        {/* GRID */}
+        <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+
+          {/* ── LEFT SIDE ── */}
+          <div className="relative z-10 flex w-full flex-col items-center text-center lg:items-start lg:text-left">
+
             {/* Badge */}
-            <AnimatedSection className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 w-fit" delay={0.06}>
-              <div className="w-2 h-2 bg-blue-400 rounded-full" />
-              <span className="text-xs sm:text-sm font-medium text-blue-300 ">AI-Powered SaaS Platform</span>
+            <AnimatedSection
+              delay={0}
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5"
+            >
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-blue-400" />
+              <span className="text-xs font-medium text-blue-300">
+                AI-Powered SaaS Platform
+              </span>
             </AnimatedSection>
 
             {/* Heading */}
             <motion.h1
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.12, duration: 0.8 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white max-w-xl hero-heading pt-2"
+              transition={{ delay: 0.1, duration: 0.7, type: "spring", stiffness: 90 }}
+              className="mb-6 text-4xl font-extrabold leading-[1.02] tracking-[-0.04em] text-white sm:text-5xl xl:text-6xl 2xl:text-7xl"
             >
-              Scale Your Business with <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">AI Automation</span>
+              Scale Your Business
+             
+              with {" "}
+               <br className="hidden sm:block" />
+              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                AI Automation
+              </span>
             </motion.h1>
 
-            {/* Subheading */}
-            <AnimatedSection className="text-base sm:text-lg text-gray-300 leading-relaxed prose-wide max-w-prose" delay={0.18}>
-              Automate workflows, unlock actionable insights, and help your team move faster with a modern AI platform built for scale.
+            {/* Description */}
+            <AnimatedSection
+              delay={0.2}
+              className="pb-2  max-w-[520px] text-sm leading-relaxed text-slate-400 sm:text-[15px]"
+            >
+              Automate workflows, unlock actionable insights, and help your
+              team move faster with a modern AI platform built for scale.
             </AnimatedSection>
 
-            {/* CTA Buttons */}
-            <AnimatedSection className="flex flex-col sm:flex-row gap-4 pt-8" delay={0.24}>
-                <button className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-10 py-3.5 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-3 group text-sm sm:text-base w-full sm:w-auto shadow-2xl shadow-blue-600/30">
+            {/* Buttons */}
+            <AnimatedSection
+              delay={0.3}
+              className="mb-8 flex flex-col items-center gap-3 sm:flex-row lg:items-start"
+            >
+              <motion.button
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="group flex items-center gap-7 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:from-blue-400 hover:to-cyan-400"
+              >
                 Start Free Trial
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white px-8 py-3.5 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2 text-sm sm:text-base w-full sm:w-auto">
-                Book a Demo
-              </button>
-            </AnimatedSection>
-          </AnimatedSection>
+                <ArrowRight
+                  size={15}
+                  className="transition-transform duration-200 group-hover:translate-x-1"
+                />
+              </motion.button>
 
-          {/* Right Dashboard Mockup */}
+              <motion.button
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:border-white/20 hover:bg-white/10"
+              >
+                Book a Demo
+              </motion.button>
+            </AnimatedSection>
+
+            {/* Social Proof */}
+            <AnimatedSection
+              delay={0.4}
+              className="flex flex-col items-center gap-4 lg:flex-row lg:items-center pt-4 "
+            >
+              <div className="flex -space-x-2">
+                {[
+                  "from-blue-400 to-cyan-400",
+                  "from-purple-400 to-pink-400",
+                  "from-amber-400 to-orange-400",
+                  "from-emerald-400 to-cyan-400",
+                ].map((gradient, index) => (
+                  <div
+                    key={index}
+                    className={`h-7 w-7 rounded-full border-2 border-slate-950 bg-gradient-to-br ${gradient}`}
+                  />
+                ))}
+              </div>
+              <p className="text-sm text-slate-500">
+                <span className="font-semibold text-white">2,000+</span>{" "}
+                teams already using Apex
+              </p>
+            </AnimatedSection>
+          </div>
+
+          {/* ── RIGHT SIDE ── */}
           <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="hidden lg:flex justify-center w-full"
+            initial={{ opacity: 0, x: 32, scale: 0.97 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.9, type: "spring", stiffness: 60 }}
+            className="relative flex w-full items-center justify-center"
           >
-            <div className="w-full max-w-md relative float-soft">
-              <div className="relative soft-card p-6 backdrop-blur-sm">
-                {/* Window controls */}
-                <div className="flex items-center gap-2 mb-6 pb-6 border-b border-white/5">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
+            {/* Dashboard Wrapper — FIX: overflow-visible so badge is not clipped */}
+            <div className="relative w-full max-w-[720px] overflow-visible">
+
+              {/* Glow */}
+              <div
+                className="absolute -inset-4 rounded-3xl opacity-20 blur-2xl"
+                style={{
+                  background:
+                    "radial-gradient(circle, rgba(59,130,246,0.35) 0%, transparent 70%)",
+                }}
+              />
+
+              {/* FIX: Floating badge moved outside overflow-hidden card */}
+              <div className="absolute right-6 top-0 z-20 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 px-3 py-1 text-[10px] font-semibold text-white shadow-lg shadow-blue-500/30">
+                ✦ AI Active
+              </div>
+
+              {/* Dashboard Card */}
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/90 shadow-2xl shadow-black/50 backdrop-blur-md">
+
+                {/* Top Bar */}
+                <div className="flex items-center gap-1.5 border-b border-white/10 bg-white/5 px-5 py-4">
+                  <div className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-green-500/80" />
                 </div>
 
-                {/* Dashboard content */}
-                <div className="space-y-6 overflow-hidden gap-7">
-                  {/* Stats */}
-                  <div className="grid grid-cols-2 gap-4 pb-2 border-b border-white/10">
-                    <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                      <p className="text-xs text-gray-400 mb-2">Revenue</p>
-                      <p className="text-xl font-bold text-white">$24.5K</p>
+                {/* Content */}
+                <div className="p-5 lg:p-6">
+
+                  {/* Header */}
+                  <div className="mb-6 flex items-center justify-between ">
+                    <div>
+                      <p className="text-sm font-semibold text-white">Welcome back 👋</p>
+                      <p className="mt-1 text-xs text-slate-500">AI analytics overview</p>
                     </div>
-                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
-                      <p className="text-xs text-blue-300 mb-2">Growth</p>
-                      <p className="text-xl font-bol text-blue-300">+32%</p>
-                    </div>
+                    <button className="rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 px-3 py-2 text-xs font-medium text-white">
+                      Upgrade
+                    </button>
                   </div>
 
-                  {/* Chart */}
-                  <div className="bg-white/5 border rounded-lg p-4 h-24 flex items-end justify-center gap-1 pb-2 border-b border-white/10">
-                    {[40, 60, 45, 70, 55, 80, 65].map((h, i) => (
-                      <div
-                        key={i}
-                        className="flex-1 bg-linear-to-t from-blue-500 to-cyan-400 rounded-sm opacity-80 hover:opacity-100 transition-opacity"
-                        style={{ height: `${h}%` }}
-                      />
+                  {/* FIX: Stats grid — always 4 cols inside dashboard, no md: breakpoint dependency */}
+                  <div className="mb-5 grid grid-cols-4 gap-2 py-2">
+                    {stats.map((stat, index) => (
+                      <motion.div
+                        key={index}
+                        whileHover={{ y: -3 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                        className="rounded-xl border border-white/10 bg-white/5 p-3 transition-all duration-300 hover:border-blue-500/20"
+                      >
+                        <div className="mb-2 flex items-center justify-between">
+                          <span className="text-[10px] text-slate-500">{stat.label}</span>
+                          <span className="text-xs">{stat.icon}</span>
+                        </div>
+                        <p className={`text-base font-bold ${stat.color}`}>{stat.value}</p>
+                        <p className={`mt-1.5 text-[10px] ${stat.up ? "text-emerald-400" : "text-red-400"}`}>
+                          {stat.change}
+                        </p>
+                      </motion.div>
                     ))}
                   </div>
 
-                  {/* Activity */}
-                  <div className="space-y-2 pt-2  ">
-                    <p className="text-xs font-semibold text-gray-300">Recent Activity</p>
-                    <p className="text-sm text-gray-400">✓ Task automated 2m ago</p>
-                    <p className="text-sm text-gray-400">✓ Report generated 5m ago</p>
-                  </div>
-                </div>
+                  {/* Revenue Chart */}
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div className="mb-4 flex items-center justify-between">
+                      <div>
+                        <p className="text-sm font-semibold text-white">Revenue Overview</p>
+                        <p className="mt-0.5 text-xs text-slate-500">Last 30 days performance</p>
+                      </div>
+                      <div className="text-xs font-medium text-cyan-400">+18.4%</div>
+                    </div>
 
-                {/* Badge */}
-                <div className="absolute -top-3 -right-3 bg-linear-to-r from-blue-600 to-cyan-600 rounded-lg px-3 py-1 text-white text-xs font-semibold shadow-xl">
-                  AI Active
+                    {/* FIX: bars use scaleY from bottom, not height % — works reliably */}
+                    <div className="flex h-[120px] items-end gap-1.5">
+                      {chartBars.map((heightPct, index) => (
+                        <div
+                          key={index}
+                          className="relative flex-1 h-full flex items-end"
+                        >
+                          <motion.div
+                            initial={{ scaleY: 0 }}
+                            animate={{ scaleY: 1 }}
+                            transition={{
+                              delay: 0.3 + index * 0.04,
+                              duration: 0.5,
+                              ease: "easeOut",
+                            }}
+                            style={{
+                              height: `${heightPct}%`,
+                              transformOrigin: "bottom",
+                            }}
+                            className="w-full rounded-t-md bg-gradient-to-t from-blue-600 to-cyan-400"
+                          />
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* X-axis labels */}
+                    <div className="mt-2 flex justify-between">
+                      {["May 1", "May 10", "May 20", "May 29"].map((d) => (
+                        <span key={d} className="text-[9px] text-slate-600">{d}</span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
